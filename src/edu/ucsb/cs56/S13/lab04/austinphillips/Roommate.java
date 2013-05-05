@@ -33,36 +33,46 @@ public class Roommate {
     
     
     /**
-       Get and Set methods for the roommate's attributes
+       Get method for name
     */
     public String getName(){
 	return this.name;
     }
-    
+    /**
+       Get method for levelOfAnnoyance
+    */    
     public int getLevelOfAnnoyance(){
-	    return this.levelOfAnnoyance;
+	return this.levelOfAnnoyance;
 	}
-    
+    /**
+       Set method for name
+    */
     public void setName(String name){
-	    this.name=name;
+	
+	this.name=name;
 	}
-    
+    /**
+       Set method for levelOfAnnoyance
+    */
     public void setLevelOfAnnoyance(int levelOfAnnoyance){
-	    this.levelOfAnnoyance=levelOfAnnoyance;
+	
+	this.levelOfAnnoyance=levelOfAnnoyance;
 	}
     
     
     /**
 	   toString method combining the two attributes into one string
-	*/
+    */
     public String toString(){
-	    String sentence ="";
+	String sentence ="";
 	    int loa=this.getLevelOfAnnoyance();
 	    String name=this.getName();
 	    sentence+="My roommate is "+name+" and my current level of annoyance with him is "+loa;
 	    return sentence;	
     }
-    
+    /**
+       simple main method
+    */
     public static void main(String [] args) {	
 	Roommate Martin = new Roommate("Martin B", 10000);
 	Roommate Martin2 = new Roommate();
@@ -71,14 +81,14 @@ public class Roommate {
 	   equals method that tests for equality in object identity
 	*/
     public boolean equals(Object o){
-	    if(o==null)
+	if(o==null)
 		return false;
 	    else if(!(o instanceof Roommate))
 		return false;
 	    else{
 		Roommate Martin=(Roommate) o;
 		return(this.getName().equals(Martin.getName())) & (this.getLevelOfAnnoyance()==Martin.getLevelOfAnnoyance());
-	    }
+		}
 	}
     
     /**

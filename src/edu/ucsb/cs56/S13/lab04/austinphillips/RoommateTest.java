@@ -3,9 +3,32 @@ package edu.ucsb.cs56.S13.lab04.austinphillips;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
+/**
+   class for testing Roommate.java
+*/
 public class RoommateTest {
+    /**
+       tests no arg constructor
+    */
+    @Test
+    public void test_DefaultConstructor() {
 
+	
+	Roommate Martin = new Roommate();
+	assertEquals("Martin B",Martin.getName());
+	assertEquals(10000,Martin.getLevelOfAnnoyance());
 
+}
+    /**
+tests 2 arg constructor
+    */
+    @Test
+public void test_TwoArgConstructor() {
+	Roommate Martin = new Roommate("Martin B", 10000);
+	assertEquals("Martin B",Martin.getName());
+	assertEquals(10000,Martin.getLevelOfAnnoyance());
+
+}
     /**
        tests get method for the name attribute
        @see Roommate#getName
@@ -35,8 +58,8 @@ public class RoommateTest {
     */
     public void test_setName(){
 	Roommate Martin = new Roommate();
-	Martin.setName("Martin B");
-	assertEquals("Martin B", Martin.getName());
+	Martin.setName("Todd");
+	assertEquals("Todd", Martin.getName());
     }
 
 
@@ -47,8 +70,8 @@ public class RoommateTest {
     */
     public void test_setLevelOfAnnoyance(){
 	Roommate Martin = new Roommate();
-	Martin.setLevelOfAnnoyance(10000);
-	assertEquals(10000,Martin.getLevelOfAnnoyance());
+	Martin.setLevelOfAnnoyance(9999);
+	assertEquals(9999,Martin.getLevelOfAnnoyance());
     }
     /**
        tests toString's ability to make one large string with the two attributes
@@ -73,10 +96,16 @@ public class RoommateTest {
 	Roommate Martin2= new Roommate("Martin B", 10000);
 	assertEquals(true, Martin.equals(Martin2));
     }
+
+    /**
+       test equals method, should return false if both roommates are not the same
+       @see Roommate#equals
+    */
+    @Test
     public void test_Equals_NotEqual() {
 
 	Roommate Martin = new Roommate();
-	Roommate Martin2 = new Roommate("Martin B", 10000);
+	Roommate Martin2 = new Roommate("Todd", 10000);
 	assertEquals(false, Martin.equals(Martin2));
     }
 
@@ -88,7 +117,7 @@ public class RoommateTest {
     */
     @Test
     public void test_Smack() {
-	Roommate Martin = new Roommate("Martin B", 10000);
+	Roommate Martin = new Roommate("Rex", 10000);
 	Martin.smack();
 	assertEquals(0, Martin.getLevelOfAnnoyance());
     }
